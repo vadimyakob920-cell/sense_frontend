@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unsubscribe</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .box {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        max-width: 320px; /* reduced from 420px */
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        color: #222;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .radio-group {
+        margin-bottom: 1rem;
+      }
+
+      label {
+        display: block;
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+        color: #333;
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        margin-right: 0.5rem;
+      }
+
+      button {
+        margin-top: 1rem;
+        padding: 0.75rem 1.5rem;
+        background: #d32f2f;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: #b71c1c;
+      }
+
+      .feedback {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        padding: 0.75rem;
+        border-radius: 6px;
+        display: none;
+      }
+
+      .feedback.error {
+        background: #fdecea;
+        color: #b71c1c;
+        border: 1px solid #f5c6cb;
+      }
+
+      .feedback.success {
+        background: #e8f5e9;
+        color: #2e7d32;
+        border: 1px solid #c8e6c9;
+      }
+
+      @media (max-width: 360px) {
+        .box {
+          padding: 1.5rem;
+          max-width: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>Unsubscribe</h2>
+      <form id="unsubscribeForm">
+        <div class="radio-group">
+          <label><input type="radio" name="reason" value="Too many emails" /> Too many emails</label>
+          <label><input type="radio" name="reason" value="Not relevant" /> Not relevant to me</label>
+          <label><input type="radio" name="reason" value="Other" /> Other</label>
+        </div>
+        <button type="submit">Confirm Unsubscribe</button>
+      </form>
+      <div class="feedback error" id="errorMessage">Please select a reason before continuing.</div>
+      <div class="feedback success" id="successMessage">You've been unsubscribed. Thank you!</div>
+    </div>
+
+    <script>
+      const form = document.getElementById("unsubscribeForm");
+      const errorMsg = document.getElementById("errorMessage");
+      const successMsg = document.getElementById("successMessage");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const selected = form.reason.value;
+
+        errorMsg.style.display = "none";
+        successMsg.style.display = "none";
+
+        if (!selected) {
+          errorMsg.style.display = "block";
+          return;
+        }
+
+        form.style.display = "none";
+        successMsg.style.display = "block";
+      });
+    </script>
+  </body>
+</html>

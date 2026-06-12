@@ -1,0 +1,36 @@
+.steps {
+  & .step {
+    &:before {
+      height: calc(0.25rem);
+      width: calc(100% + 4rem);
+      position: absolute;
+      top: calc(0.25rem * 3.5);
+      right: 50%;
+    }
+  }
+}
+
+.steps {
+  & .step {
+    > .step-icon,
+    &:not(:has(.step-icon)):after {
+      height: calc(0.25rem * 6);
+      width: calc(0.25rem * 6);
+    }
+  }
+}
+.steps {
+  .step {
+    display: grid;
+    grid-template-rows: 32px 1fr;
+    position: relative;
+  }
+}
+
+.steps {
+  gap: 4rem;
+}
+
+legend.fieldset-legend {
+  white-space: nowrap;
+}
