@@ -65,7 +65,7 @@ const PhotoVerification = () => {
       <header className="text-center space-y-4 pb-6 select-none">
         <h1 className="text-3xl font-bold">Submission Authenticity Check</h1>
         <p className="text-gray-600">
-          To protect our platform and ensure authenticity, Ava Labs uses AI-powered face detection.
+          To protect our platform and ensure authenticity, Nodit uses AI-powered face detection.
           This check is <span className="font-semibold">only performed in real-time</span> to
           confirm your submission.{' '}
           <span className="font-semibold">We do not store your image data.</span>
